@@ -2,16 +2,49 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wave</title>
-  <link rel="stylesheet" href="assets/style.css" />
-  <script defer src="js/splash.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wave by Cubicle™</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body class="splash-screen">
-  <div class="center">
-    <img src="assets/wave-logo.svg" alt="Wave Logo" width="150" />
-    <h1>Wave</h1>
-    <p>by Cubicle™</p>
-  </div>
+<body>
+
+<!-- Splash screen -->
+<div id="splash">
+  <img src="logo.png" alt="Wave Logo" class="logo" />
+  <h1 class="brand">Wave</h1>
+  <p class="byline">by Cubicle™</p>
+</div>
+
+<!-- Auth screen -->
+<div id="auth" class="hidden">
+  <h2>Hello! Before you start using Wave:</h2>
+  <button onclick="showRegister()">Register</button>
+  <p>or</p>
+  <button onclick="showLogin()">Sign in</button>
+</div>
+
+<!-- Registration -->
+<div id="register-form" class="hidden">
+  <h2>Register</h2>
+  <input type="text" id="reg-username" placeholder="Username" />
+  <input type="password" id="reg-password" placeholder="Password" />
+  <button onclick="sendCode('register')">Send Code</button>
+  <p id="code-sent-msg" class="hidden"></p>
+  <input type="text" id="reg-code" placeholder="Enter Code" class="hidden"/>
+  <button onclick="verifyCode('register')" class="hidden" id="verify-btn">Verify & Continue</button>
+</div>
+
+<!-- Login -->
+<div id="login-form" class="hidden">
+  <h2>Sign in</h2>
+  <input type="text" id="login-username" placeholder="Username" />
+  <input type="password" id="login-password" placeholder="Password" />
+  <button onclick="sendCode('login')">Send Code</button>
+  <p id="login-code-msg" class="hidden"></p>
+  <input type="text" id="login-code" placeholder="Enter Code" class="hidden"/>
+  <button onclick="verifyCode('login')" class="hidden" id="login-verify-btn">Verify & Continue</button>
+</div>
+
+<script src="script.js" defer></script>
 </body>
 </html>
